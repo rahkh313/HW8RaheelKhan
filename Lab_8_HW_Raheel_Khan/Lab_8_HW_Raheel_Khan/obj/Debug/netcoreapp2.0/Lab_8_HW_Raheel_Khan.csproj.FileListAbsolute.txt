@@ -1,0 +1,11 @@
+C:\Users\raheel.khan\source\repos\Lab_8_HW_Raheel_Khan\Lab_8_HW_Raheel_Khan\bin\Debug\netcoreapp2.0\Lab_8_HW_Raheel_Khan.deps.json
+C:\Users\raheel.khan\source\repos\Lab_8_HW_Raheel_Khan\Lab_8_HW_Raheel_Khan\bin\Debug\netcoreapp2.0\Lab_8_HW_Raheel_Khan.runtimeconfig.json
+C:\Users\raheel.khan\source\repos\Lab_8_HW_Raheel_Khan\Lab_8_HW_Raheel_Khan\bin\Debug\netcoreapp2.0\Lab_8_HW_Raheel_Khan.runtimeconfig.dev.json
+C:\Users\raheel.khan\source\repos\Lab_8_HW_Raheel_Khan\Lab_8_HW_Raheel_Khan\bin\Debug\netcoreapp2.0\Lab_8_HW_Raheel_Khan.dll
+C:\Users\raheel.khan\source\repos\Lab_8_HW_Raheel_Khan\Lab_8_HW_Raheel_Khan\bin\Debug\netcoreapp2.0\Lab_8_HW_Raheel_Khan.pdb
+C:\Users\raheel.khan\source\repos\Lab_8_HW_Raheel_Khan\Lab_8_HW_Raheel_Khan\obj\Debug\netcoreapp2.0\Lab_8_HW_Raheel_Khan.csprojResolveAssemblyReference.cache
+C:\Users\raheel.khan\source\repos\Lab_8_HW_Raheel_Khan\Lab_8_HW_Raheel_Khan\obj\Debug\netcoreapp2.0\Lab_8_HW_Raheel_Khan.csproj.CoreCompileInputs.cache
+C:\Users\raheel.khan\source\repos\Lab_8_HW_Raheel_Khan\Lab_8_HW_Raheel_Khan\obj\Debug\netcoreapp2.0\Lab_8_HW_Raheel_Khan.AssemblyInfoInputs.cache
+C:\Users\raheel.khan\source\repos\Lab_8_HW_Raheel_Khan\Lab_8_HW_Raheel_Khan\obj\Debug\netcoreapp2.0\Lab_8_HW_Raheel_Khan.AssemblyInfo.cs
+C:\Users\raheel.khan\source\repos\Lab_8_HW_Raheel_Khan\Lab_8_HW_Raheel_Khan\obj\Debug\netcoreapp2.0\Lab_8_HW_Raheel_Khan.dll
+C:\Users\raheel.khan\source\repos\Lab_8_HW_Raheel_Khan\Lab_8_HW_Raheel_Khan\obj\Debug\netcoreapp2.0\Lab_8_HW_Raheel_Khan.pdb
