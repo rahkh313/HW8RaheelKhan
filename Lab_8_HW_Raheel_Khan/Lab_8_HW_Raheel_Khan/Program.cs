@@ -7,6 +7,8 @@ namespace Lab_8_HW_Raheel_Khan
     {
         public static void Main(string[] args)
         {
+
+            bool repeat = true;
             string[] names =
             {
                 "Jacob",    //Names[0]
@@ -82,160 +84,148 @@ namespace Lab_8_HW_Raheel_Khan
 
 
 
-
-
-
-            Console.WriteLine("Welcome to our C# class. Which student would you like to learn more about? (please enter a number 1-20:)");
-
-            for (int i = 0; i < names.Length; i++)
-
-                Console.WriteLine((i + 1) + ". " + names[i]);
-
-            string nameAnswer = (Console.ReadLine());
-            string nameAnswerPattern = (@"(^[1-9]{1}$)|(^[1]{1}[1-9]|(^[2]{1}[0]))");
-
-            string elseAnswer = "";
-            bool success = GetMatchStudent(nameAnswer, nameAnswerPattern);
-            bool c = true;
-
-            int nameAnswerInt = int.Parse(nameAnswer);
-            int nameAnswerReal = nameAnswerInt - 1;
-
-            bool repeat = false;
-            bool repeatSecond = false;
-
-
-            while (repeat == false)
+            while (repeat)
             {
+                Console.WriteLine("Welcome to our C# class. Which student would you like to learn more about?");
 
-
-                if (success == true)
+                //Show menu
+                for (int i = 0; i < names.Length; i++)
                 {
-                    Console.WriteLine("Student " + nameAnswer + " is " + names.GetValue(nameAnswerReal) + ".  What would you like to know about " + names.GetValue(nameAnswerReal) + "? (enter \"hometown\" or \"favorite food\"):");
-                    repeat = true;
+                    Console.WriteLine($"{i + 1}: {names[i]}");
                 }
-                else 
+
+                //get number into variable and validate
+                int studentNumber = Validator(names);
+
+                //get student name into variable
+                string studentName = names[studentNumber];
+                Console.WriteLine($"\nYou have chosen {studentName}.");
+
+                //get information about student selected
+                bool repeatOne = true;
+                while (repeatOne)
                 {
+                    getInfo(studentName, studentNumber, food, hometown);
+                    repeatOne = repeator(studentName);
+                }
+                repeat = repeator("another student");
+                if (repeat == false)
+                {
+                    Console.WriteLine("Goodbye!");
+                }
+            }
+        }
 
-                    while (repeatSecond == false)
-                    {
 
-                        Console.WriteLine("That student does not exist.  Please try again.(enter a number 1-20)");
-                        elseAnswer = Console.ReadLine();
-                        success = GetMatchStudent(elseAnswer, nameAnswerPattern);
 
-                        if (success == true)
-                        {
-                            repeatSecond = true;
-                        }
-                        else
-                        {
-                            repeatSecond = false;
-                        }
 
-                    }
 
+
+
+
+        public static int Validator(string[] array)
+        {
+            int number = 0;
+            bool repeat = true;
+            while (repeat)
+            {
+                Console.WriteLine("Please Enter a Student Number (1-20):");
+                try
+                {
+                    string userInput = Console.ReadLine();
+                    number = int.Parse(userInput) - 1;
+                    string testRange = array[number];
                     repeat = false;
                 }
-
-                
-
-            }
-
-
-       
-            string questionOneAnswer = Console.ReadLine();
-
-       
-
-            if (questionOneAnswer == "hometown" || questionOneAnswer == "Hometown")
-            {
-                Console.WriteLine(names.GetValue(nameAnswerReal) + " is from " + hometown.GetValue(nameAnswerReal) + ".  Would you like to know more? (enter \"yes\" or \"no\"):");
-
-                string answerToQuestionOneHomeTown = Console.ReadLine();
-
-
-                if (answerToQuestionOneHomeTown == "no" || answerToQuestionOneHomeTown == "NO" || answerToQuestionOneHomeTown == "No")
+                catch (IndexOutOfRangeException)
                 {
-                    Console.WriteLine("Thanks!");
-                    return;
+                    Console.WriteLine("That is not a student number! Please try again.  (enter a number between 1-20):");
+                    repeat = true;
                 }
-
-                if (answerToQuestionOneHomeTown == "yes" || answerToQuestionOneHomeTown == "YES" || answerToQuestionOneHomeTown == "Yes")
+                catch (OverflowException)
                 {
-                    Console.WriteLine("What would you like to know about " + names.GetValue(nameAnswerReal) + "? (enter \"hometown\" or \"favorite food\"):");
-                    string answerToQuestionOneHomeTownTwo = Console.ReadLine();
-              
+                    Console.WriteLine("That is not a student number! Please try again.  (enter a number between 1-20):");
+                    repeat = true;
                 }
-
-                else
+                catch (FormatException)
                 {
-                    Console.WriteLine("That data does not exist. Please try again. (enter or “hometown” or “favorite food”):");
-                }
-
-
-            }
-            if (questionOneAnswer == "favorite food" || questionOneAnswer == "Favorite Food")
-            {
-                Console.WriteLine(names.GetValue(nameAnswerReal) + "'s favorite food is " + food.GetValue(nameAnswerReal) + ".  Would you like to know more? (enter \"yes\" or \"no\"):");
-
-                string answerToQuestionOneFood = Console.ReadLine();
-
-                if (answerToQuestionOneFood == "no" || answerToQuestionOneFood == "NO" || answerToQuestionOneFood == "No")
-                {
-                    Console.WriteLine("Thanks!");
-                    return;
-                }
-
-                if (answerToQuestionOneFood == "yes" || answerToQuestionOneFood == "YES" || answerToQuestionOneFood == "Yes")
-                {
-                    Console.WriteLine("What would you like to know about " + names.GetValue(nameAnswerReal) + "? (enter \"hometown\" or \"favorite food\"):");
-                    return;
-                }
-                else
-                {
-                    Console.WriteLine("That data does not exist. Please try again. (enter or “hometown” or “favorite food”):");
+                    Console.WriteLine("Please enter a number please!");
+                    repeat = true;
                 }
 
             }
-
-            else
-            {
-                Console.WriteLine("That data does not exist. Please try again. (enter or “hometown” or “favorite food”):");
-            }
-
+            return number;
 
 
 
 
         }
-
-
-
-
-
-
-
-        public static bool GetMatchStudent(string input, string pattern)
+        public static void getInfo(string names, int studentNum, string[] food, string[] hometown)
         {
-            Match getMatch = Regex.Match(input, pattern);
-            if (getMatch.Success)
+            bool repeat = true;
+            while (repeat)
             {
-                return true;
+                Console.WriteLine($"\nWhat would you like to know about {names}?\n\tYou can choose: Food, Hometown.");
+                string whatInfo = Console.ReadLine().ToLower();
+                if (whatInfo == "hometown")
+                {
+                    Console.WriteLine($"{names}'s hometown is {hometown[studentNum]}.");
+                    repeat = false;
+
+                }
+                else if (whatInfo == "food")
+                {
+                    Console.WriteLine($"{names}'s favorite food is {food[studentNum]}.");
+                    repeat = false;
+                }
+                else
+                {
+                    Console.WriteLine("Im sorry that wasnt a choice!");
+                }
+
             }
-            else
-            {
-                return false;
-            }
+
         }
+        public static bool repeator(string learnMore)
+        {
+            bool repeat = true;
+            while (repeat)
+            {
+                Console.WriteLine($"Would you like to know more about {learnMore}?");
+                string userRepeat = Console.ReadLine().ToLower();
 
+                if (userRepeat == "n" || userRepeat == "no")
+                {
+                    Console.WriteLine("Thank You, Goodbye!");
+                    repeat = false;
+                }
+                else if (userRepeat == "y" || userRepeat == "yes")
+                {
+                    repeat = false;
+                    return true;
+                }
+                else
+                {
+                    Console.WriteLine("Please put a yes, y, no, or n.");
+                }
+
+            }
+            return repeat;
+        }
     }
-
-
-
-
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
